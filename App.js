@@ -3,37 +3,46 @@ import React, {useEffect, useState} from 'react';
 import { Text, View, Button, Alert } from 'react-native';
 import {css} from './assets/css/Css';
 import Pages from './Pages';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import {Home, Login, Rastreio} from './views/Index';
 
 export default function App() {
 
-  const [product, setProduct] = useState('Bola');
-  const [value, setValue] = useState(0);
-
-  useEffect(() => {
-    if (value > 0) {
-      Alert.alert('Novo produto adicionado!');
-    }
-
-  }, [value]);
-
-  const props = {
-    empresa: 'Empresa 01',
-    dono: 'Vinicius',
-    produto: product,
-    valor: value,
-};
+  const Stack = createStackNavigator();  
   return (
-    <View style={css.container}>
-      <Text style={css.content}>Open up App.js to start working on your app!</Text> 
-      <Text style={css.pages}><Pages {...props}></Pages></Text>
-
-      <Button
-      onPress = { () =>{
-        setValue(value + 1);
-      }} disabled={value == 10} title={value < 10  ? 'Adicionar Produto' : 'Número maximo de produtos'}></Button>
-
-      <StatusBar style="dark" />
-    </View>
-    
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+        name="Home"
+        component={Home}
+        options={{
+          title: 'Bem Vindo',
+          headerStyle: {
+            backgroundColor: '#00A859',
+          },
+          headerTitleStyle: {
+            color: '#fff',
+            alignSelf: 'center',
+            fontWeight: 'bold',
+          },
+        }} />
+        <Stack.Screen
+        name="Login"
+        component={Login}
+        options={{
+          title: 'Tela de Login',
+          headerStyle: {
+            backgroundColor: '#00A859',
+          },
+          headerTitleStyle: {
+            color: '#fff',
+            padding: 50,
+            fontWeight: 'bold',
+          },
+        }}/>
+        <Stack.Screen name="Rastreio" component={Rastreio} />
+      </Stack.Navigator>
+    </NavigationContainer>       
   );
 }
