@@ -16,5 +16,9 @@ const css = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
     },  
+    img: {
+      width: 100,
+      height: 100,
+    },
   });
   export {css};

@@ -31,6 +31,7 @@ export default function App() {
         name="Login"
         component={Login}
         options={{
+          headerShown: false,
           title: 'Tela de Login',
           headerStyle: {
             backgroundColor: '#00A859',
