@@ -15,10 +15,44 @@ const css = StyleSheet.create({
       backgroundColor: '#fff',
       alignItems: 'center',
       justifyContent: 'center',
+      backgroundColor: '#DBECE9'
     },  
     img: {
       width: 100,
       height: 100,
+    },
+    darkBg: {
+    },
+    login_msg: (text = 'none') => ({
+      fontWeight: 'bold',
+      fontSize: 22,
+      color: 'red',
+      marginTop: 0,
+      marginBottom: 15,
+      display: text,
+    }),
+    login_form: {
+      width: '80%',
+    },
+    login_logo: {
+      marginBottom: 10,
+    },  
+    input: {
+      backgroundColor: '#fff',
+      fontSize: 19,
+      padding: 7,
+      marginBottom: 15,
+    },
+    btn: {
+      padding: 12,
+      backgroundColor: '#00A859',
+      alignSelf: 'center',
+      borderRadius: 5,
+    },  
+    btnText: {
+      color: '#DBECE9',
+      fontWeight: 'bold',
+      fontSize: 22,
     },
   });
   export {css};

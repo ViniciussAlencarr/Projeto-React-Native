@@ -22,7 +22,7 @@ export default function App() {
             backgroundColor: '#00A859',
           },
           headerTitleStyle: {
-            color: '#fff',
+            color: '#DBECE9',
             alignSelf: 'center',
             fontWeight: 'bold',
           },
@@ -37,12 +37,23 @@ export default function App() {
             backgroundColor: '#00A859',
           },
           headerTitleStyle: {
-            color: '#fff',
+            color: '#DBECE9',
             padding: 50,
             fontWeight: 'bold',
           },
         }}/>
-        <Stack.Screen name="Rastreio" component={Rastreio} />
+        <Stack.Screen name="Rastreio" component={Rastreio}
+        options={{
+          title: 'Tela de Login',
+          headerStyle: {
+            backgroundColor: '#00A859',
+          },
+          headerTitleStyle: {
+            color: '#DBECE9',
+            padding: 50,
+            fontWeight: 'bold',
+          },
+        }}/>
       </Stack.Navigator>
     </NavigationContainer>       
   );
