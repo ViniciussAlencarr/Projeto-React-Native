@@ -17,9 +17,29 @@ const css = StyleSheet.create({
       justifyContent: 'center',
       backgroundColor: '#DBECE9'
     },  
+    viewContainer: {
+      borderWidth: 1,
+      margin: 10,
+      borderRadius: 25,
+      alignItems: 'center',
+      backgroundColor: '#DBECE9',
+      marginTop: 5,
+    },
     img: {
       width: 100,
       height: 100,
+      margin: 20,
+    },
+    img_Login: {
+      width: 100,
+      height: 100,
+      margin: 20,
+      alignSelf: 'flex-start',
+    },
+    img_Rastreio: {
+      width: 100,
+      height: 100,
+      margin: 20,
     },
     darkBg: {
     },
