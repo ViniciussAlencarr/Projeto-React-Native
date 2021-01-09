@@ -16,11 +16,11 @@ module.exports = {
       },
       userId: {
         type: Sequelize.INTEGER,
-        references:{
-          model: 'users',
-          key: 'id'
+        references:{ //Definindo Foreign Key (FK), referenciando-se a tabela 'users' anteriormente criada
+          model: 'users', // Nome da tabela no qual a PK está inserida
+          key: 'id' // Como será encontrado o valor da chave, no caso é por " ID "
         },
-        onUpdate: 'cascade',
+        onUpdate: 'cascade',// Caso o usuário seja deletado ou alterado, altera ou deleta as Trackings relacionadas
         onDelete: 'cascade',
       },
       createdAt: {

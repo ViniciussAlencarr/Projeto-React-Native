@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
 const basename = path.basename(__filename);
-const env = process.env.NODE_ENV || 'development';
+const env = process.env.NODE_ENV || 'development'; // tipo de BD no qual está se utilizando, deve ser referenciado no arquivo de src="./config/config.json"
 const config = require(__dirname + '/../config/config.json')[env];
 const db = {};
 

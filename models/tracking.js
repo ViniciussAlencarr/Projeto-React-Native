@@ -10,8 +10,8 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      Tracking.belongsTo(models.User);
-      Tracking.hasMany(models.Product) ;
+      Tracking.belongsTo(models.User); // Pertence a tabela User (Usuário)
+      Tracking.hasMany(models.Product) ; // Um rastreio pode ter varios produtos
     }
   };
   Tracking.init({
