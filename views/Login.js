@@ -35,8 +35,6 @@ export default function Login(props) {
     return (
         <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style = {[css.container, css.darkBg]}>
             <TouchableOpacity>
-                <Image source = {require('../assets/arrow.png')}></Image>
-                <Text>asdas</Text>
             </TouchableOpacity>
             <View style = {css.login_logo}>
                 <Image style = {{width: 100, height: 125, alignSelf: 'center'}} source={require('../assets/vini.png')}></Image>
