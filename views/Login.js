@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'; 
 import {KeyboardAvoidingView, View, Text, Image, TextInput, TouchableOpacity, Platform, StatusBar } from 'react-native';
 import { css } from '../assets/css/Css';
 
@@ -10,7 +10,22 @@ export default function Login(props) {
     const [login, setLogin] = useState( null );
 
     async function sendForm() {
-        let response = await fetch('http://192.168.0.10:3000/login', {
+        let response = await fetch('http://192.168.0.4:3000/login', {
+            method: 'POST',
+            headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                name: user,
+                password: password
+            })
+        })
+
+    }
+
+    /*async function sendForm() {
+        let response = await fetch('http://exp://192.168.0.4:3000/login', { 
             method: 'POST',
             headers: {
               Accept: 'application/json',
@@ -21,7 +36,7 @@ export default function Login(props) {
                 password: password
             })
         });
-        let json = await response.json();
+        /*let json = await response.json();
         console.log(json);
         
         if (json === 'error') {
@@ -30,7 +45,7 @@ export default function Login(props) {
                 setDisplay('none');
             }, 5000);
         }
-    }
+    }*/
     
     return (
         <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style = {[css.container, css.darkBg]}>
