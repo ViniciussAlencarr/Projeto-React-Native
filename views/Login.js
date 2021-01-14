@@ -20,32 +20,16 @@ export default function Login(props) {
                 name: user,
                 password: password
             })
-        })
-
-    }
-
-    /*async function sendForm() {
-        let response = await fetch('http://exp://192.168.0.4:3000/login', { 
-            method: 'POST',
-            headers: {
-              Accept: 'application/json',
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                name: user,
-                password: password
-            })
         });
-        /*let json = await response.json();
-        console.log(json);
-        
-        if (json === 'error') {
+        let json = await response.json();
+        if (json === '[error]!!') {
             setDisplay('flex');
             setTimeout( () => {
                 setDisplay('none');
-            }, 5000);
+            }, 5000)
         }
-    }*/
+
+    }
     
     return (
         <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style = {[css.container, css.darkBg]}>
