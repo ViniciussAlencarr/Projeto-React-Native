@@ -6,6 +6,7 @@ import Pages from './Pages';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import {Home, Login, Rastreio} from './views/Index';
+import {AreaRestrita} from './views/areaRestrita/AreaRestrita';
 
 export default function App() {
 
@@ -54,6 +55,19 @@ export default function App() {
             fontWeight: 'bold',
           },
         }}/>
+        <Stack.Screen name="AreaRestrita" component={AreaRestrita}
+        options={{
+          title: 'Aréa Restrita',
+          headerStyle: {
+            backgroundColor: '#00A859',
+          },
+          headerTitleStyle: {
+            color: '#DBECE9',
+            padding: 50,
+            fontWeight: 'bold',
+          },
+        }}/>
+        
       </Stack.Navigator>
     </NavigationContainer>       
   );

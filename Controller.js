@@ -22,7 +22,7 @@ app.post('/login', async (req, res) => {
     if (response === null) {
         res.send(JSON.stringify('[error]!!'));
     } else {
-        res.send(response)
+        res.send(response);
     }
 });
 let port = process.env.PORT || 3000;
