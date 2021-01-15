@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'; 
 import {KeyboardAvoidingView, View, Text, Image, TextInput, TouchableOpacity, Platform, StatusBar, Alert, AsyncStorage } from 'react-native';
 import { css } from '../assets/css/Css';
+//import AsyncStorage from '@react-native-community/async-storage';
 
 export default function Login(props) {
     
@@ -8,7 +9,6 @@ export default function Login(props) {
     const [user, setUser] = useState( null );
     const [password, setPassword] = useState( null );
     const [login, setLogin] = useState( null );
-
 
     async function sendForm({navigation}) {
         let response = await fetch('http://192.168.0.4:3000/login', {
@@ -30,12 +30,13 @@ export default function Login(props) {
             }, 5000);
             await AsyncStorage.clear();
         } else {
-            await AsyncStorage.setItem('userData', JSON.stringify(json));
-            navigation.navigate('AreaRestrita');
-            
+            /*let userData = await AsyncStorage.setItem('userData', JSON.stringify(json));
+            navigation.navigate('AreaRestrita');*/
+            let resData = AsyncStorage.getItem('userData');
+            console.log(JSON.parse(resData));
         }
+        
     }
-    
     
     return (
         <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style = {[css.container, css.darkBg]}>

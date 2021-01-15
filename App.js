@@ -1,17 +1,18 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useEffect, useState} from 'react';
-import { Text, View, Button, Alert } from 'react-native';
+import { Text, View, Button, Alert, AsyncStorage  } from 'react-native';
 import {css} from './assets/css/Css';
 import Pages from './Pages';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import {Home, Login, Rastreio} from './views/Index';
-import {AreaRestrita} from './views/areaRestrita/AreaRestrita';
+import {Home, Login, Rastreio, AreaRestrita} from './views/Index';
+//import AsyncStorage from '@react-native-community/async-storage';
+
 
 export default function App() {
 
   const Stack = createStackNavigator();  
-  return (
+  return ( 
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
