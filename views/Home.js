@@ -25,7 +25,9 @@ export default function Home(props) {
                 <StatusBar backgroundColor = '#00A859'/>
             </View>
             <View>
-                
+                <TouchableOpacity onPress = { () => props.navigation.navigate('AreaRestrita')}>
+                    <Text>Area</Text>
+                </TouchableOpacity>
             </View>
         </KeyboardAvoidingView>
     );

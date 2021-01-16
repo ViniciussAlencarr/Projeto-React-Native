@@ -6,12 +6,20 @@ import Pages from './Pages';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import {Home, Login, Rastreio, AreaRestrita} from './views/Index';
-//import AsyncStorage from '@react-native-community/async-storage';
+
+
 
 
 export default function App() {
 
   const Stack = createStackNavigator();  
+
+  async function teste() {
+    let resData = await AsyncStorage.getItem('userData');
+    console.log(JSON.parse(resData));
+  }
+  teste();
+
   return ( 
     <NavigationContainer>
       <Stack.Navigator>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'; 
-import {KeyboardAvoidingView, View, Text, Image, TextInput, TouchableOpacity, Platform, StatusBar, Alert, AsyncStorage } from 'react-native';
+import {KeyboardAvoidingView, View, Text, Image, TextInput, TouchableOpacity, Platform, StatusBar, Alert, AsyncStorage} from 'react-native';
 import { css } from '../assets/css/Css';
-//import AsyncStorage from '@react-native-community/async-storage';
+
 
 export default function Login(props) {
     
@@ -10,12 +10,12 @@ export default function Login(props) {
     const [password, setPassword] = useState( null );
     const [login, setLogin] = useState( null );
 
-    async function sendForm({navigation}) {
-        let response = await fetch('http://192.168.0.4:3000/login', {
+    async function sendForm() {
+        let response = await fetch('http://192.168.0.9:3000/login', {
             method: 'POST',
             headers: {
-              Accept: 'application/json',
-              'Content-Type': 'application/json'
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify({
                 name: user,
@@ -27,16 +27,16 @@ export default function Login(props) {
             setDisplay('flex');
             setTimeout( () => {
                 setDisplay('none');
-            }, 5000);
+            }, 5000);   
             await AsyncStorage.clear();
         } else {
-            /*let userData = await AsyncStorage.setItem('userData', JSON.stringify(json));
-            navigation.navigate('AreaRestrita');*/
-            let resData = AsyncStorage.getItem('userData');
-            console.log(JSON.parse(resData));
+            let userData = await AsyncStorage.setItem('userData', JSON.stringify(json));
+            //props.navigation.navigate('AreaRestrita');
+            let resData = await AsyncStorage.getItem('userData');
+            console.log(JSON.parse(resData)); 
         }
-        
-    }
+    };
+    
     
     return (
         <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style = {[css.container, css.darkBg]}>
