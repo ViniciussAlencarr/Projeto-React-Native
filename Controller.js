@@ -25,11 +25,29 @@ app.post('/login', async (req, res) => {
         res.send(response);
     }
 });
+
 let port = process.env.PORT || 3000;
 app.listen(port, (req, res) => {
     console.log('Servidor Rodando');
     
 });
+app.get('/update', async (req, res) => {
+    try {
+        let update = await user.findByPk(4).then((response) => {
+            response.name = 'User01'
+            response.password = '123'
+            response.save();
+        })
+        console.log(update);
+    } catch(error) {
+        console.log('Deu erro aqui', error);
+    }
+});
+
+
+
+
+
 /*
 app.get('/update', async (req, res) => {
     let update = await user.findByPk(4).then((aux) => {

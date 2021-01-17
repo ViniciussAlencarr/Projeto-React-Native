@@ -5,21 +5,13 @@ import {css} from './assets/css/Css';
 import Pages from './Pages';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import {Home, Login, Rastreio, AreaRestrita} from './views/Index';
-
-
+import {Home, Login, Rastreio} from './views/Index';
+import AreaRestrita from './views/AreaRestrita';
 
 
 export default function App() {
 
   const Stack = createStackNavigator();  
-
-  async function teste() {
-    let resData = await AsyncStorage.getItem('userData');
-    console.log(JSON.parse(resData));
-  }
-  teste();
-
   return ( 
     <NavigationContainer>
       <Stack.Navigator>
@@ -66,7 +58,7 @@ export default function App() {
         }}/>
         <Stack.Screen name="AreaRestrita" component={AreaRestrita}
         options={{
-          title: 'Aréa Restrita',
+          title: 'Área Restrita',
           headerStyle: {
             backgroundColor: '#00A859',
           },

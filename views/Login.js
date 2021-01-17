@@ -3,7 +3,7 @@ import {KeyboardAvoidingView, View, Text, Image, TextInput, TouchableOpacity, Pl
 import { css } from '../assets/css/Css';
 
 
-export default function Login(props) {
+export default function Login({navigation}) {
     
     const [display, setDisplay] = useState( 'none' );
     const [user, setUser] = useState( null );
@@ -31,9 +31,7 @@ export default function Login(props) {
             await AsyncStorage.clear();
         } else {
             let userData = await AsyncStorage.setItem('userData', JSON.stringify(json));
-            //props.navigation.navigate('AreaRestrita');
-            let resData = await AsyncStorage.getItem('userData');
-            console.log(JSON.parse(resData)); 
+            navigation.navigate('AreaRestrita');
         }
     };
     

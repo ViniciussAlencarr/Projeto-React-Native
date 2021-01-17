@@ -3,6 +3,7 @@ import {KeyboardAvoidingView, Button, Text, View, Image, TouchableOpacity, Statu
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { css } from '../assets/css/Css';
+import AreaRestrita from './AreaRestrita';
         
 export default function Home(props) {
     return (
@@ -23,11 +24,6 @@ export default function Home(props) {
                         source={require('../img/btn-rastrear.png')}/>
                 </TouchableOpacity>
                 <StatusBar backgroundColor = '#00A859'/>
-            </View>
-            <View>
-                <TouchableOpacity onPress = { () => props.navigation.navigate('AreaRestrita')}>
-                    <Text>Area</Text>
-                </TouchableOpacity>
             </View>
         </KeyboardAvoidingView>
     );
