@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'; 
 import {KeyboardAvoidingView, View, Text, Image, TextInput, TouchableOpacity, Platform, StatusBar, Alert, AsyncStorage} from 'react-native';
 import { css } from '../assets/css/Css';
+import * as LocalAuthentication from 'expo-local-authentication';
 
 
 export default function Login({navigation}) {
@@ -8,8 +9,45 @@ export default function Login({navigation}) {
     const [display, setDisplay] = useState( 'none' );
     const [user, setUser] = useState( null );
     const [password, setPassword] = useState( null );
-    const [login, setLogin] = useState( null );
+    const [login, setLogin] = useState( false );
 
+    useEffect( () => {
+        verifyLogin();
+    }, []);  
+
+    useEffect( () => {
+        if (login === true) {
+            biometric();
+        }
+    }, [login])
+
+    async function verifyLogin() {
+        let response = await AsyncStorage.getItem('userData');
+        let json = await JSON.parse(response);
+        if (json != null) {
+            setUser(json.name);
+            setPassword(json.password);
+            setLogin(true);
+        }
+
+    };
+    async function biometric() {
+        let compatible = await LocalAuthentication.hasHardwareAsync();//verificando se o dispositivo é compativel com biometria
+        if (compatible) { //verifica se há biometricas guardadas dentro do dispositivo
+            let biometricRecords = await LocalAuthentication.isEnrolledAsync();
+            if (!biometricRecords) {
+                alert('Biometria não cadastrada!');
+            } else {
+                let result = await LocalAuthentication.authenticateAsync();
+                if (result.success) {
+                    sendForm();
+                } else {
+                    setUser(null);
+                    setPassword(null);
+                }
+            }
+        }
+    }
     async function sendForm() {
         let response = await fetch('http://192.168.0.9:3000/login', {
             method: 'POST',
