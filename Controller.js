@@ -31,6 +31,7 @@ app.listen(port, (req, res) => {
     console.log('Servidor Rodando');
     
 });
+/*  
 app.get('/update', async (req, res) => {
     try {
         let update = await user.findByPk(4).then((response) => {
