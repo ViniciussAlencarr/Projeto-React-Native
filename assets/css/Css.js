@@ -74,5 +74,11 @@ const css = StyleSheet.create({
       fontWeight: 'bold',
       fontSize: 22,
     },
+    area_Tab: {
+      backgroundColor: '#00A859',
+      fontSize: 20,
+      fontWeight: 'bold',
+      color: '#fff',
+    },
   });
   export {css};
