@@ -80,5 +80,21 @@ const css = StyleSheet.create({
       fontWeight: 'bold',
       color: '#fff',
     },
+    area_menu: {
+
+    },
+    btn_home: {
+      flexDirection: 'row',
+      paddingTop: 40,
+      paddingBottom: 10,
+      width: '100%',
+      backgroundColor: '#1111',
+    },
+    area_title: {
+
+    },
+    btn_logout: {
+
+    },
   });
   export {css};

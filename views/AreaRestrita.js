@@ -22,7 +22,7 @@ export default function AreaRestrita() {
     }, [])
 
     return (
-        <Tab.Navigator activeColor = '#999'
+        <Tab.Navigator activeColor = '#fff'
         inactiveColor = '#fff'
         barStyle = {css.area_Tab}>
             <Tab.Screen
@@ -30,19 +30,19 @@ export default function AreaRestrita() {
             component = {Profile}
             options = {{
                 tabBarIcon:() => (
-                    <Icon name = "users" size = {20} color = "#999"/>
+                    <Icon name = "users" size = {20} color = "#fff"/>
                 )
             }}/>
             <Tab.Screen name="Cadastro" component={Cadastro}
             options = {{
                 tabBarIcon:() => (
-                    <Icon name = "archive" size = {20} color = "#999"/>
+                    <Icon name = "archive" size = {20} color = "#fff"/>
                 )
             }}/>
             <Tab.Screen name="Edição" component={Edicao}
             options = {{
                 tabBarIcon:() => (
-                    <Icon name = "edit" size = {20} color = "#999"/>
+                    <Icon name = "edit" size = {20} color = "#fff"/>
                 )
             }}/>
         </Tab.Navigator>
