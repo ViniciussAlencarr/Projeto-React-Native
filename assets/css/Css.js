@@ -74,6 +74,9 @@ const css = StyleSheet.create({
       fontWeight: 'bold',
       fontSize: 22,
     },
+    containerTop: {
+      justifyContent: 'flex-start'
+    },
     area_Tab: {
       backgroundColor: '#00A859',
       fontSize: 20,
@@ -81,17 +84,24 @@ const css = StyleSheet.create({
       color: '#fff',
     },
     area_menu: {
+      flexDirection: 'row',
+      paddingTop: 18,
+      paddingBottom: 10,
+      width: '100%',
+      backgroundColor: '#00A859',
+      alignItems: 'center',
+      justifyContent: 'center'
 
     },
     btn_home: {
-      flexDirection: 'row',
-      paddingTop: 40,
-      paddingBottom: 10,
-      width: '100%',
-      backgroundColor: '#1111',
+      textAlign: 'left'
     },
     area_title: {
-
+      width: '80%',
+      fontWeight: 'bold',
+      fontSize: 20,
+      color: '#fff',
+      textAlign: 'center',
     },
     btn_logout: {
 
