@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {KeyboardAvoidingView, View, Text, Image, TextInput, TouchableOpacity, Platform, StatusBar, Alert, AsyncStorage} from 'react-native';
 import { css } from '../assets/css/Css';
 import * as LocalAuthentication from 'expo-local-authentication';
+import config from '../config/config.json';
 
 
 export default function Login({navigation}) {
@@ -49,7 +50,7 @@ export default function Login({navigation}) {
         }
     }
     async function sendForm() {
-        let response = await fetch('http://192.168.0.9:3000/login', {
+        let response = await fetch(`${config.urlRoot}login`, {
             method: 'POST',
             headers: {
                 Accept: 'application/json',

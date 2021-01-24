@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { View, Text, Button, StatusBar, AsyncStorage} from 'react-native';
+import { View, Text, Button, StatusBar, BackHandler, Alert, AsyncStorage} from 'react-native';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 //import Icon from 'react-native-vector-icons/dist/FontAwesome';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -8,7 +8,7 @@ import {Profile, Cadastro, Edicao} from './Index';
 
 import { css } from '../assets/css/Css';
 
-export default function AreaRestrita() {
+export default function AreaRestrita({navigation}) {
     const Tab = createMaterialBottomTabNavigator();
     const [user, setUser] = useState(null);
 
@@ -20,6 +20,30 @@ export default function AreaRestrita() {
         }
         getUser();
     }, [])
+    useEffect(() => {
+        const backAction = () => {
+          Alert.alert("Alerta!", "Deseja mesmo sair do app?", [
+            {
+              text: "Cancelar",
+              onPress: () => null,
+              style: "cancel"
+            },
+            { text: "Sim", onPress: () => {
+                navigation.navigate('Home');
+                BackHandler.exitApp();
+            }
+        }
+          ]);
+          return true;
+        };
+    
+        const backHandler = BackHandler.addEventListener(
+          "hardwareBackPress",
+          backAction
+        );
+    
+        return () => backHandler.remove();
+      }, []);
 
     return (
         <Tab.Navigator activeColor = '#fff'

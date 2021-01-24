@@ -12,7 +12,6 @@ const css = StyleSheet.create({
     },
     container: {
       flex: 1,
-      backgroundColor: '#fff',
       alignItems: 'center',
       justifyContent: 'center',
       backgroundColor: '#DBECE9'
@@ -75,7 +74,8 @@ const css = StyleSheet.create({
       fontSize: 22,
     },
     containerTop: {
-      justifyContent: 'flex-start'
+      justifyContent: 'flex-start',
+      backgroundColor: '#fff',
     },
     area_Tab: {
       backgroundColor: '#00A859',
