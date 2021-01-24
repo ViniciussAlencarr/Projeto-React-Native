@@ -56,7 +56,7 @@ export default function App() {
             fontWeight: 'bold',
           },
         }}/>
-        <Stack.Screen name="AreaRestrita" component={AreaRestrita}
+        <Stack.Screen name="AreaRestrita" options={{headerShown: false}} component={AreaRestrita}
         options={{
           title: 'Área Restrita',
           headerStyle: {
