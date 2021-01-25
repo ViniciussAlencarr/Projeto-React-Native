@@ -43,8 +43,24 @@ app.post('/verifyPass', async (req, res) => {
         } else {
             res.send(JSON.stringify('As senhas não conferem'));
         }
-        
     }
+});
+
+//Criação do produto no banco
+app.post('/create', async (req, res) => {
+    let trackingId = '';
+    await tracking.create({
+        userId: req.body.userId,
+        code: req.body.code,
+        local: req.body.local
+    }).then((response) => {
+        trackingId += response.id;
+    });
+
+    await product.create({
+        trackingId: trackingId,
+        name: req.body.product
+    });
 });
 
 let port = process.env.PORT || 3000;

@@ -71,7 +71,6 @@ export default function Login({navigation}) {
         } else {
             let userData = await AsyncStorage.setItem('userData', JSON.stringify(json));
             navigation.navigate('AreaRestrita');
-            await AsyncStorage.clear();
         }
     };
     
