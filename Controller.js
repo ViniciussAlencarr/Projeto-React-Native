@@ -3,6 +3,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const models = require('./models');
 const { response } = require('express');
+const QRCode = require('qrcode');
 
 const app = express();
 app.use(cors());
@@ -61,6 +62,13 @@ app.post('/create', async (req, res) => {
         trackingId: trackingId,
         name: req.body.product
     });
+    QRCode.toDataURL(req.body.code).then(url => {
+        QRCode.toFile (
+            './assets/code.jpg',
+            req.body.code
+        );
+        res.send(JSON.stringify(url));
+    })
 });
 
 let port = process.env.PORT || 3000;

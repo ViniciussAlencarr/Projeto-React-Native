@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { View, TouchableOpacity, Text, Button, StatusBar, AsyncStorage} from 'react-native';
+import { View, TouchableOpacity, Image, Text, Button, StatusBar, AsyncStorage, Alert} from 'react-native';
 import { TextInput } from 'react-native-paper';
 import MenuAreaRestrita from '../assets/components/MenuAreaRestrita';
 import { css } from '../assets/css/Css';
@@ -10,7 +10,7 @@ export default function Cadastro({navigation}) {
     const [code, setCode] = useState(null);
     const [user, setUser] = useState(null);
     const [product, setProduct] = useState(null);
-    const [response, setResponse] = useState(null);
+    const [response, setResponse] = useState('null');
 
     useEffect(() => {
         getUserId();
@@ -33,7 +33,7 @@ export default function Cadastro({navigation}) {
         let result = '';
         let lenght = 20;
         let chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        for (let i = lenght; i > 0; --i) result += chars[Math.floor(Math.random())]
+        for (let i = lenght; i > 0; --i) result += chars[Math.floor(Math.random() * chars.length)]
         setCode(result);
     }
 
@@ -51,13 +51,20 @@ export default function Cadastro({navigation}) {
                 product: product,
                 local: address
             })
-        }) 
+        });
+        const json = await response.json();
+        setResponse(json);
+        Alert.alert('Produto adicionado com sucesso!');
     }
 
     return (
         <View>
             <MenuAreaRestrita title = 'Cadastro' navigation = {navigation}></MenuAreaRestrita>
-
+            {response && (
+                <View>
+                    <Image source = {require('../assets/code.jpg')}></Image>
+                </View>
+            )}
             <View style = {css.input}>
                 <TextInput placeholder = {'Nome do Produto'} onChangeText = {text => setProduct(text)}></TextInput>
             </View>

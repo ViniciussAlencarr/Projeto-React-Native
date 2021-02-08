@@ -106,5 +106,23 @@ const css = StyleSheet.create({
     btn_logout: {
 
     },
+    txtInputPassword: {
+      margin: 5,
+    },
+    viewProfile: {
+      marginTop: 10,
+      backgroundColor: '#fff',
+      justifyContent: 'center',
+      alignItems: 'center',
+      padding: 0
+    },
+    btnInputPassword: {
+      backgroundColor: '#00A859',
+      borderRadius: 10,
+      padding: 14,
+      margin: 10,
+      marginTop: 20
+
+    }
   });
   export {css};
