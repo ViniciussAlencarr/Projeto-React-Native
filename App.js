@@ -8,7 +8,6 @@ import { createStackNavigator } from '@react-navigation/stack';
 import {Home, Login, Rastreio} from './views/Index';
 import AreaRestrita from './views/AreaRestrita';
 
-
 export default function App() {
 
   const Stack = createStackNavigator();  
